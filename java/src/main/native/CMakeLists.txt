@@ -177,8 +177,8 @@ endif(JNI_FOUND)
 
 include_directories("${CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES}"
                     "${CMAKE_BINARY_DIR}/include"
-                    "${CMAKE_SOURCE_DIR}/include"
-                    "${CMAKE_SOURCE_DIR}/src"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/include"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/src"
                     "${JNI_INCLUDE_DIRS}"
                     "${CUDF_INCLUDE}"
                     "${RMM_INCLUDE}"

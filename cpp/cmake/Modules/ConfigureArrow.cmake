@@ -29,7 +29,7 @@ elseif(CMAKE_CXX11_ABI)
     list(APPEND ARROW_CMAKE_ARGS " -DARROW_TENSORFLOW=OFF")
 endif(NOT CMAKE_CXX11_ABI)
 
-configure_file("${CMAKE_SOURCE_DIR}/cmake/Templates/Arrow.CMakeLists.txt.cmake"
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/Templates/Arrow.CMakeLists.txt.cmake"
                "${ARROW_ROOT}/CMakeLists.txt")
 
 file(MAKE_DIRECTORY "${ARROW_ROOT}/build")
@@ -72,10 +72,10 @@ endif(ARROW_BUILD)
 set(ARROW_GENERATED_IPC_DIR 
     "${ARROW_ROOT}/build/src/arrow/ipc")
 
-configure_file(${ARROW_GENERATED_IPC_DIR}/File_generated.h ${CMAKE_SOURCE_DIR}/include/cudf/ipc_generated/File_generated.h COPYONLY)
-configure_file(${ARROW_GENERATED_IPC_DIR}/Message_generated.h ${CMAKE_SOURCE_DIR}/include/cudf/ipc_generated/Message_generated.h COPYONLY)
-configure_file(${ARROW_GENERATED_IPC_DIR}/Schema_generated.h ${CMAKE_SOURCE_DIR}/include/cudf/ipc_generated/Schema_generated.h COPYONLY)
-configure_file(${ARROW_GENERATED_IPC_DIR}/Tensor_generated.h ${CMAKE_SOURCE_DIR}/include/cudf/ipc_generated/Tensor_generated.h COPYONLY)
+configure_file(${ARROW_GENERATED_IPC_DIR}/File_generated.h ${CMAKE_CURRENT_SOURCE_DIR}/include/cudf/ipc_generated/File_generated.h COPYONLY)
+configure_file(${ARROW_GENERATED_IPC_DIR}/Message_generated.h ${CMAKE_CURRENT_SOURCE_DIR}/include/cudf/ipc_generated/Message_generated.h COPYONLY)
+configure_file(${ARROW_GENERATED_IPC_DIR}/Schema_generated.h ${CMAKE_CURRENT_SOURCE_DIR}/include/cudf/ipc_generated/Schema_generated.h COPYONLY)
+configure_file(${ARROW_GENERATED_IPC_DIR}/Tensor_generated.h ${CMAKE_CURRENT_SOURCE_DIR}/include/cudf/ipc_generated/Tensor_generated.h COPYONLY)
 
 message(STATUS "Arrow installed here: " ${ARROW_ROOT}/install)
 set(ARROW_LIBRARY_DIR "${ARROW_ROOT}/install/lib")

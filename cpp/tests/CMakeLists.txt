@@ -52,12 +52,12 @@ if(CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES)
 endif()
 
 include_directories("${CMAKE_BINARY_DIR}/include"
-                    "${CMAKE_SOURCE_DIR}/include"
-                    "${CMAKE_SOURCE_DIR}"
-                    "${CMAKE_SOURCE_DIR}/src"
-                    "${CMAKE_SOURCE_DIR}/thirdparty/cub"
-                    "${CMAKE_SOURCE_DIR}/thirdparty/jitify"
-                    "${CMAKE_SOURCE_DIR}/thirdparty/dlpack/include"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/include"
+                    "${CMAKE_CURRENT_SOURCE_DIR}"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/src"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/cub"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/jitify"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/dlpack/include"
                     "${GTEST_INCLUDE_DIR}"
                     "${ARROW_INCLUDE_DIR}"
                     "${FLATBUFFERS_INCLUDE_DIR}"
@@ -228,13 +228,13 @@ ConfigureTest(BINARY_TEST "${BINARY_TEST_SRC}")
 # - jit cache tests -------------------------------------------------------------------------------
 
 set(JITCACHE_TEST_SRC 
-    "${CMAKE_SOURCE_DIR}/src/binaryop/jit/core/cache.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/binaryop/jit/core/cache.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/binaryop/unit/jit-cache-test.cu")
 
 ConfigureTest(JITCACHE_TEST "${JITCACHE_TEST_SRC}")
 
 set(JITCACHE_MULTI_TEST_SRC 
-    "${CMAKE_SOURCE_DIR}/src/binaryop/jit/core/cache.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/binaryop/jit/core/cache.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/binaryop/unit/jit-cache-multiprocess-test.cpp")
 
 ConfigureTest(JITCACHE_MULTIPROC_TEST "${JITCACHE_MULTI_TEST_SRC}")

@@ -14,7 +14,7 @@ elseif(CMAKE_CXX11_ABI)
     list(APPEND GBENCH_CMAKE_ARGS " -DCMAKE_CXX_FLAGS=-D_GLIBCXX_USE_CXX11_ABI=1")
 endif(NOT CMAKE_CXX11_ABI)
 
-configure_file("${CMAKE_SOURCE_DIR}/cmake/Templates/GoogleBenchmark.CMakeLists.txt.cmake"
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/Templates/GoogleBenchmark.CMakeLists.txt.cmake"
                "${GBENCH_ROOT}/CMakeLists.txt")
 
 file(MAKE_DIRECTORY "${GBENCH_ROOT}/build")

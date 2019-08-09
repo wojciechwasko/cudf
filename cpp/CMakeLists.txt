@@ -201,7 +201,7 @@ if(BUILD_TESTS)
     if(GTEST_FOUND)
         message(STATUS "Google C++ Testing Framework (Google Test) found in ${GTEST_ROOT}")
         include_directories(${GTEST_INCLUDE_DIR})
-        add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
+        add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
     else()
         message(AUTHOR_WARNING "Google C++ Testing Framework (Google Test) not found: automated tests are disabled.")
     endif(GTEST_FOUND)
@@ -217,7 +217,7 @@ if(BUILD_BENCHMARKS)
   if(GBENCH_FOUND)
     message(STATUS "Google C++ Benchmarking Framework (Google Benchmark) found in ${GBENCH_ROOT}")
     include_directories(${GBENCH_INCLUDE_DIR})
-    add_subdirectory(${CMAKE_SOURCE_DIR}/benchmarks)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/benchmarks)
   else()
     message(AUTHOR_WARNING "Google C++ Benchmarking Framework (Google Benchmark) not found: automated tests are disabled.")
   endif(GBENCH_FOUND)
@@ -232,11 +232,11 @@ if(CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES)
 endif()
 
 include_directories("${CMAKE_BINARY_DIR}/include"
-                    "${CMAKE_SOURCE_DIR}/include"
-                    "${CMAKE_SOURCE_DIR}/src"
-                    "${CMAKE_SOURCE_DIR}/thirdparty/cub"
-                    "${CMAKE_SOURCE_DIR}/thirdparty/jitify"
-                    "${CMAKE_SOURCE_DIR}/thirdparty/dlpack/include"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/include"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/src"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/cub"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/jitify"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/dlpack/include"
                     "${ARROW_INCLUDE_DIR}"
                     "${FLATBUFFERS_INCLUDE_DIR}"
                     "${ZLIB_INCLUDE_DIRS}"
@@ -339,7 +339,7 @@ SET_TARGET_PROPERTIES(cudf PROPERTIES BUILD_RPATH "\$ORIGIN")
 # - jitify ----------------------------------------------------------------------------------------
 
 # Creates executable stringify and uses it to convert types.h to c-str for use in JIT code
-add_executable(stringify "${CMAKE_SOURCE_DIR}/thirdparty/jitify/stringify.cpp")
+add_executable(stringify "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/jitify/stringify.cpp")
 execute_process(WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/include)
 
